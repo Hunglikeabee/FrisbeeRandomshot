@@ -2,7 +2,7 @@
   "expo": {
     "name": "FrisbeeRandomshot",
     "slug": "FrisbeeRandomshot",
-    "version": "1.0.0",
+    "version": "3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -12,22 +12,35 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/75eafe1a-cf8c-4bec-93e9-5a1945da19ba"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.hunglikeabee.FrisbeeRandomshot",
+      "buildNumber": "3.0.0"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.hunglikeabee.FrisbeeRandomshot",
+      "versionCode": 3
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "75eafe1a-cf8c-4bec-93e9-5a1945da19ba"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
   }
 }

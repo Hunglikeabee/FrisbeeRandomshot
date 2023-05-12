@@ -1,20 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Main from './app/screens/Main';
+import DiscSelector from './app/screens/DiskSelector';
+import { createStackNavigator } from '@react-navigation/stack';
+import { useFonts } from "expo-font";
+import PlayGame from './app/screens/PlayGame';
+import { StyledView } from './styling/GlobalStyling';
+
+
+const { Navigator, Screen } = createStackNavigator();
 
 export default function App() {
+
+  const [fontsLoaded] = useFonts({
+    "OpenSans": require("./assets/fonts/OpenSans-Regular.ttf"),
+    "BebasNeue": require("./assets/fonts/BebasNeue-Regular.ttf"),
+  })
+  if(!fontsLoaded) {
+    return <StyledView />
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+  <SafeAreaProvider style={{flex: 1, backgroundColor: "white"}}>
+      <NavigationContainer>
+        <Navigator screenOptions={{headerShown: true}}>
+          <Screen name="DiscSelector" component={DiscSelector}></Screen>
+          <Screen name="Home" component={Main}></Screen>
+          <Screen name="PlayGame" component={PlayGame}></Screen>
+        </Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
